@@ -1,0 +1,8 @@
+<fieldset>
+  <form method="post">
+  {% csrf_token %}
+  {{ form.non_field_errors }}
+  {{form.as_p}}
+  <input type="submit" value="送出" />
+  </form>
+</fieldset>
