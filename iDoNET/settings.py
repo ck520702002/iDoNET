@@ -39,6 +39,9 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'accounts',
+    'product',
+    'invoice',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -83,4 +86,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.6/howto/static-files/
 
 STATIC_URL = '/static/'
+
+AUTH_PROFILE_MODULE = 'accounts.UserProfile'
 STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
+

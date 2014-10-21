@@ -1,10 +1,17 @@
 {% extends 'main_base.html' %}
 {% load i18n %}
 {% load url from future %}
-{% load static from staticfiles %}
+
 <!DOCTYPE html>
 
-{%block content%}
+{% block meta %}
+  {% load static from staticfiles %}
+  <meta charset="utf-8">
+  <link type="text/css" rel="stylesheet" href="{% static 'css/bootstrap.css' %}"/>
+{% endblock %}
+
+{% block content %}
+{% load staticfiles %}
 
                 <div class="control-group"> <!-- 輸入訊息-->            
                 <div class="row-fluid">
@@ -12,9 +19,13 @@
                         <br/>
                         <div class="panel panel-default" style="border-color:#FFFFFF">
                             <div class="panel-body"align="center">
-                              <img src="../iDoNET_LOGO.png" style="width:80%" >
+<<<<<<< HEAD
+                              <img src="{% static "img/logo.png"%} style="width:80%"" >
+=======
+                              <img src="{% static "img/logo.png"%}" >
+>>>>>>> origin/master
                               </br></br></br>
-                              <img src="../quote.png" style="width:80%" >
+                              <img src="{% static "img/quote.png"%}" style="width:80%" >
                             </div>
                             <div class="panel-body">
                               <p>
@@ -27,50 +38,5 @@
                     </div>
                 </div>
             </div>
-        </div>
-        <!--/row-->
-
-        <div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar" role="navigation">
-              <div class="row-fluid">
-                  <div class="span4">
-                    <div style="width:300px" class="panel panel-default">
-                      <table class="table table-striped table-hover " >
-                        <thead>
-                          <tr>
-                            <th>其他捐款專案</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          <tr>
-                            <td><img align="center" src="pic/ad1.png"></img></td>
-                          </tr>
-                          <tr>
-                            <td><img align="center" src="pic/ad4.png"></img></td>
-                          </tr>
-                          <tr>
-                            <td><img align="center" src="pic/ad5.png"></img></td>
-                          </tr>
-                          <tr>
-                            <td><img align="center" src="pic/ad6.png"></img></td>
-                          </tr>
-                        </tbody>
-                      </table>
-                    </div>
-                  </div>
-            </div>
-        </div>
-
-    </div>
-    <!--/.fluid-container-->
-
-    <!-- Le javascript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="/bundles/bootstrapSourceJS?v=XkouIldXq_pPzIiEbylJIGwgBv2qYDSef1Dnn06aIkQ1"></script>
-
-
-
-
-</body>
-</html>
+        
 {% endblock %}

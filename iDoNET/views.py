@@ -6,6 +6,6 @@ from django.views.generic import View
 
 # Create your views here.
 class home(View):
-	template = "home.html"
+	template_name = "home.html"
 	def get(self, request, *args, **kwargs):
-		return HttpResponse('哈囉我是轟配擠')
+		return render(request,self.template_name)

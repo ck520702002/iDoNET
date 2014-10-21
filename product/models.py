@@ -2,8 +2,8 @@ from django.db import models
 
 class Product(models.Model):
 
-	barcode = models.integerfield()
-	price = models.integerfield()
+	barcode = models.IntegerField()
+	price = models.IntegerField()
 	name = models.CharField()
 	
 
