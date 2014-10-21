@@ -6,5 +6,6 @@ class login_form(forms.Form):
     password = forms.CharField(label='密碼',widget=forms.PasswordInput)
 
 class sign_up_form(forms.Form):
-    username = forms.CharField(label='卡號')
+    username = forms.IntegerField(label='卡號')
     password = forms.CharField(label='密碼',widget=forms.PasswordInput)
+    password_again = forms.CharField(label='確認密碼',widget=forms.PasswordInput)
