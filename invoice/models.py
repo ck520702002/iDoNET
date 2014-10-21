@@ -1,10 +1,11 @@
 from django.db import models
-from product import Product
-import product
+from product.models import Product
 
-class Invoice(models.Model)	
+
+
+class Invoice(models.Model):
 	
 	number = models.CharField(max_length=20,blank=False) 
-	product = models.ManyToMany('product.Product') 
+	product = models.ManyToManyField('product.Product') 
 	def get_price():
 		Product.objects.filter(invoice__id=self.pk)
