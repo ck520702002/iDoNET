@@ -1,8 +1,23 @@
-<fieldset>
-  <form method="post">
-  {% csrf_token %}
-  {{ form.non_field_errors }}
-  {{form.as_p}}
-  <input type="submit" value="送出" />
+{% extends 'landing_base.html' %}
+{% load i18n %}
+{% load url from future %}
+
+{% block meta %}
+  {% load static from staticfiles %}
+  <meta charset="utf-8">
+  <link type="text/css" rel="stylesheet" href="{% static 'css/bootstrap.css' %}"/>
+{% endblock %}
+
+{% block content %}
+
+<div class = "container" align = "center" color="#FFFFFF" style="width:250px">
+  <form action="" method="post" class="form-signup">
+    {% csrf_token %}
+    <fieldset>
+      {{ form.non_field_errors }}
+      {{form.as_p}}
+    </fieldset>
+    <input class="btn btn-warning btn btn-large btn-block" type="submit" value="{% trans "送出" %}" style="margin-left:5px;width:230px"/>
   </form>
-</fieldset>
+</div>
+{% endblock %}

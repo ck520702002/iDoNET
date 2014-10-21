@@ -1,0 +1,31 @@
+{% extends 'main_base.html' %}
+{% load i18n %}
+{% load url from future %}
+{% load staticfiles %}
+<!DOCTYPE html>
+
+{%block content%}
+
+                <div class="control-group"> <!-- 輸入訊息-->            
+                <div class="row-fluid">
+                    <div class="span4">
+                        <br/>
+                        <div class="panel panel-default" style="border-color:#FFFFFF">
+                            <div class="panel-body"align="center">
+                              <img src="{% static"img/logo.png"%} style="width:80%"" >
+                              </br></br></br>
+                              <img src="../quote.png" style="width:80%" >
+                            </div>
+                            <div class="panel-body">
+                              <p>
+                                「關懷」是iDoNET最在意的事情，藉由將捐款的無形門檻再降低，提高可能的捐款金額，解決原本可能存在的資源不均問題，把民眾的點滴愛心確實的灌溉給需要的弱勢團體。零錢捐，一個在台灣因便利商店盛行而形成獨有小額捐款方式，因為iDoNET，變得更茁壯。期待有一天iDoNET能跨過海峽，越過大洋，讓關懷在異地發芽。
+                              </p>
+                            </div>
+                        </div>
+                      
+                      
+                    </div>
+                </div>
+            </div>
+        
+{% endblock %}
