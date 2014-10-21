@@ -12,3 +12,10 @@ class QueryView(View):
 
 class DonateInvoiceView(View):
 	template_name = 'invoice1.html'
+	def get(self, request, *args, **kwargs):
+		return render(request,self.template_name)
+
+class DonateCoinView(View):
+	template_name = 'coin1.html'
+	def get(self, request, *args, **kwargs):
+		return render(request,self.template_name)
