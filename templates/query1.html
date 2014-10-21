@@ -1,0 +1,119 @@
+{% extends 'main_base.html' %}
+{% load i18n %}
+{% load url from future %}
+
+<!DOCTYPE html>
+
+{% block meta %}
+  {% load static from staticfiles %}
+  <meta charset="utf-8">
+  <link type="text/css" rel="stylesheet" href="{% static 'css/bootstrap.css' %}"/>
+{% endblock %}
+
+{% block content %}
+{% load staticfiles %}
+                <div class="row-fluid">
+                    <div class="span4">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">查詢捐款明細</div>
+                            <div class="panel-body">
+                            </br>
+                              <ul class="nav nav-tabs">
+                                  <li class="active"><a href="#A" data-toggle="tab">電子發票</a></li>
+                                  <li class=""><a href="#B" data-toggle="tab">小額捐款</a></li>
+                              </ul>
+                              <div class="tabbable">
+                                <div class="tab-content">
+                                  <div class="tab-pane active" id="A">
+                                    <table class="table table-striped">
+                                        <thead>
+                                            <tr>
+                                                <th>時間</th>
+                                                <th>電子發票號碼</th>
+                                                <th>消費金額</th>
+                                                <th>是否中獎</th>
+                                                <th>捐獻對象</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>103年09-10月</td>
+                                                <td>LN-28741643</td>
+                                                <td>39元</td>
+                                                <td>尚未公佈</td>
+                                                <td>惠光導盲犬教育基金會</td>
+                                            </tr>
+                                            <tr>
+                                                <td>103年09-10月</td>
+                                                <td>LN-28740495</td>
+                                                <td>86元</td>
+                                                <td>尚未公佈</td>
+                                                <td>惠光導盲犬教育基金會</td>
+                                            </tr>
+                                            <tr>
+                                                <td>103年09-10月</td>
+                                                <td>CT-88335637</td>
+                                                <td>32元</td>
+                                                <td>尚未公佈</td>
+                                                <td>惠光導盲犬教育基金會</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+
+                                  </div>
+                                  <div class="tab-pane" id="B">
+                                    <table class="table table-striped">
+                                        <thead>
+                                            <tr>
+                                                <th>時間</th>
+                                                <th>捐款門檻</th>
+                                                <th>悠遊卡<br/>結賬單位</th>
+                                                <th>單筆<br/>消費金額</th>
+                                                <th>單筆<br/>捐款金額</th>
+                                                <th>此月<br/>捐款上限</th>
+                                                <th>捐獻對象</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>103.10.09</td>
+                                                <td>100元</td>
+                                                <td>5元</td>
+                                                <td>133元</td>
+                                                <td>2元</td>
+                                                <td>500元</td>
+                                                <td>惠光導盲犬教育基金會</td>
+                                            </tr>
+                                            <tr>
+                                                <td>103.10.09</td>
+                                                <td>100元</td>
+                                                <td>5元</td>
+                                                <td>111元</td>
+                                                <td>4元</td>
+                                                <td>500元</td>
+                                                <td>惠光導盲犬教育基金會</td>
+                                            </tr>
+                                            <tr>
+                                                <td>103.10.09</td>
+                                                <td>100元</td>
+                                                <td>5元</td>
+                                                <td>189元</td>
+                                                <td>1元</td>
+                                                <td>500元</td>
+                                                <td>惠光導盲犬教育基金會</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                  </div>
+                                </div> 
+                              </div>
+                              <div class="panel-footer" align="right" style="background-color:white">
+                              <button class="btn btn-primary">列印明細</button>
+                              </div>
+                            </div>
+                        </div>
+                    </div> 
+                </div>
+        <!--/row-->
+        
+{% endblock %}
