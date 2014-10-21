@@ -4,6 +4,6 @@ class Product(models.Model):
 
 	barcode = models.IntegerField()
 	price = models.IntegerField()
-	name = models.CharField(max_lengh=20)
+	name = models.CharField(max_length=20)
 	
 
