@@ -2,9 +2,9 @@
 from django import forms
 
 class login_form(forms.Form):
-    username = forms.IntegerField(label='卡號')
+    username = forms.CharField(label='卡號')
     password = forms.CharField(label='密碼',widget=forms.PasswordInput)
 
 class sign_up_form(forms.Form):
-    username = forms.IntegerField(label='卡號')
+    username = forms.CharField(label='卡號')
     password = forms.CharField(label='密碼',widget=forms.PasswordInput)
