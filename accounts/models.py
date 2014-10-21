@@ -6,10 +6,10 @@ from django.db.models.signals import post_save
 class UserProfile(models.Model):  
     user = models.OneToOneField(User)  
     #other fields here
-    name = models.CharField(max_length=20)
-    card = models.CharField(max_length=20)
-    threshold = models.IntegerField(max_length=20)
-    roundup = models.IntegerField(max_length=20)
+    name = models.CharField(max_length=20,null=True)
+    card = models.CharField(max_length=20,null=True)
+    threshold = models.IntegerField(max_length=20,null=True)
+    roundup = models.IntegerField(max_length=20,null=True)
 
     def __str__(self):  
           return "%s's profile" % self.user  
