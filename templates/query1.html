@@ -36,27 +36,15 @@
                                             </tr>
                                         </thead>
                                         <tbody>
+                                            {%for invoice in invoices%}
                                             <tr>
-                                                <td>103年09-10月</td>
-                                                <td>LN-28741643</td>
-                                                <td>39元</td>
+                                                <td>{{invoice.time}}</td>
+                                                <td>{{invoice.number}}</td>
+                                                <td>{{invoice.total_price}}</td>
                                                 <td>尚未公佈</td>
-                                                <td>惠光導盲犬教育基金會</td>
+                                                <td>{{invoice.to_whom}}</td>
                                             </tr>
-                                            <tr>
-                                                <td>103年09-10月</td>
-                                                <td>LN-28740495</td>
-                                                <td>86元</td>
-                                                <td>尚未公佈</td>
-                                                <td>惠光導盲犬教育基金會</td>
-                                            </tr>
-                                            <tr>
-                                                <td>103年09-10月</td>
-                                                <td>CT-88335637</td>
-                                                <td>32元</td>
-                                                <td>尚未公佈</td>
-                                                <td>惠光導盲犬教育基金會</td>
-                                            </tr>
+                                            {%endfor%}
                                         </tbody>
                                     </table>
 

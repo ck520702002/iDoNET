@@ -1,16 +1,35 @@
 from django.db import models
 from django.utils import timezone
-import product
+from product.models import Product
+from django.contrib.auth.models import User
 
-class donation_detail(models.Model):
-
-	amount = models.IntegerField(max_length=10,blank=False)
-	detail = models.ForeignKey('product.product')
-	time = models.DateTimeField(auto_now=True)
-	charity = models.ForeignKey("donation.Charities")
-	
-
-class Charities(models.Model):
-	
+class Charity(models.Model):
 	name = models.CharField(max_length=20,blank=False) 
 	intro = models.CharField(max_length=200,blank=True) 
+	category = models.CharField(max_length=20,blank=True)
+	link = models.URLField(blank=True)
+	def __unicode__(self):  
+          return self.name 
+
+class Invoice(models.Model):
+	owner = models.ForeignKey(User)
+	number = models.CharField(max_length=20,blank=False) 
+	product = models.ManyToManyField(Product)
+	time = models.DateTimeField(auto_now=True)
+	to_whom = models.ForeignKey(Charity)
+	total_price = models.IntegerField(max_length=10,blank=True)
+	hit = models.BooleanField()
+	def get_price():
+		Product.objects.filter(invoice__id=self.pk)
+	def __unicode__(self):  
+          return self.number 
+
+class donation_detail(models.Model):
+	owner = models.ForeignKey(User)
+	threshold = models.IntegerField(max_length=20,null=True)
+    roundup = models.IntegerField(max_length=20,null=True)
+	amount = models.IntegerField(max_length=10,blank=False)
+	invoice = models.ForeignKey(Invoice)
+	time = models.DateTimeField(auto_now=True)
+	to_whom = models.ForeignKey(Charity)
+
