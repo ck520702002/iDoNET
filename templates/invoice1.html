@@ -1,10 +1,17 @@
 {% extends 'main_base.html' %}
 {% load i18n %}
 {% load url from future %}
-{% load static from staticfiles %}
+
 <!DOCTYPE html>
 
-{%block content%}
+{% block meta %}
+  {% load static from staticfiles %}
+  <meta charset="utf-8">
+  <link type="text/css" rel="stylesheet" href="{% static 'css/bootstrap.css' %}"/>
+{% endblock %}
+
+{% block content %}
+{% load staticfiles %}
                 <div class="control-group"> <!-- 輸入訊息-->            
                 <div class="row-fluid">
                     <div class="span4">
@@ -36,7 +43,7 @@
                                 <label class="control-label" style="color:#009FCC" for="textarea"><h4>STEP2. 請輸入卡號:</h4></label> 
                                 <textarea style="width:600px;"class="form-control input-xlarge" id="textarea" rows="1" placeholder="卡號"></textarea><br/>
                                 <label>卡號位置說明:</label><br/>
-                                <img align="center" src="pic/cardnumber.jpg"></img>
+                                <img align="center" src=" {% static "img/cardnumber.jpg" %}"></img>
                                 <div class="span4" align="right">
                                 <input type="submit" class="btn btn-primary" href="#myModal" data-toggle="modal" value="送出"></input>
                                 </br></br>
@@ -46,46 +53,8 @@
                     </div>
                 </div>
             </div>
-        </div>
-        <!--/row-->
-
-        <div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar" role="navigation">
-              <div class="row-fluid">
-                  <div class="span4">
-                    <div style="width:300px" class="panel panel-default">
-                      <table class="table table-striped table-hover " >
-                        <thead>
-                          <tr>
-                            <th>其他捐款專案</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          <tr>
-                            <td><img align="center" src="pic/ad1.png"></img></td>
-                          </tr>
-                          <tr>
-                            <td><img align="center" src="pic/ad4.png"></img></td>
-                          </tr>
-                          <tr>
-                            <td><img align="center" src="pic/ad5.png"></img></td>
-                          </tr>
-                          <tr>
-                            <td><img align="center" src="pic/ad6.png"></img></td>
-                          </tr>
-                        </tbody>
-                      </table>
-                    </div>
-                  </div>
-            </div>
-        </div>
-    </div>
-    <!--/.fluid-container-->
-
-    <!-- Le javascript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="/bundles/bootstrapSourceJS?v=XkouIldXq_pPzIiEbylJIGwgBv2qYDSef1Dnn06aIkQ1"></script>
-
+       
+ 
 
 <!-- ModalFoldr-->
 <div id="myModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -110,6 +79,4 @@
 
 
 
-</body>
-</html>
 {% endblock %}
