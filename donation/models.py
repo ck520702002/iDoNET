@@ -2,6 +2,7 @@ from django.db import models
 from django.utils import timezone
 from product.models import Product
 from django.contrib.auth.models import User
+from django.db.models import Sum
 
 class Charity(models.Model):
 	name = models.CharField(max_length=20,blank=False) 
@@ -17,11 +18,11 @@ class Invoice(models.Model):
 	product = models.ManyToManyField(Product)
 	time = models.DateTimeField(auto_now=True)
 	to_whom = models.ForeignKey(Charity)
-	total_price = models.IntegerField(max_length=10,blank=True)
 	hit = models.BooleanField()
 	def get_price():
 		products = Product.objects.filter(invoice__id=self.pk)
-		
+		price = products.objects.aggregate(Sum('price'))
+		return price
 	def __unicode__(self):  
           return self.number 
 
@@ -29,10 +30,11 @@ class Donation_detail(models.Model):
 	owner = models.ForeignKey(User)
 	threshold = models.IntegerField(max_length=20,null=True)
 	roundup = models.IntegerField(max_length=20,null=True)
-	amount = models.IntegerField(max_length=10,blank=False)
+	amount = models.IntegerField(max_length=10,blank=True,null=True)
 	invoice = models.ForeignKey(Invoice)
 	time = models.DateTimeField(auto_now=True)
 	to_whom = models.ForeignKey(Charity)
+	Donation_detailamount = models.IntegerField(max_length=10,blank=True,null=True)
 	def __unicode__(self):  
           return self.time
 
