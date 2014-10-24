@@ -12,7 +12,7 @@ class UserProfile(models.Model):
     threshold = models.IntegerField(max_length=20,null=True)
     roundup = models.IntegerField(max_length=20,null=True)
     upper_limit = models.IntegerField(max_length=20,null=True)
-
+    last_update = models.DateTimeField(auto_now=True)
     def __unicode__(self):  
           return "%s's profile" % self.user  
 
