@@ -33,12 +33,11 @@ class Donation_detail(models.Model):
 	owner = models.ForeignKey(User)
 	threshold = models.IntegerField(max_length=20,null=True)
 	roundup = models.IntegerField(max_length=20,null=True)
-	shopping_amount = models.IntegerField(max_length=10,blank=False)
-	donation_amount = models.IntegerField(max_length=10,blank=False)
+	amount = models.IntegerField(max_length=10,blank=False)
 	invoice = models.ForeignKey(Invoice)
 	time = models.DateTimeField(auto_now=True)
 	to_whom = models.ForeignKey(Charity)
 	Donation_detailamount = models.IntegerField(max_length=10,blank=True,null=True)
 	def __unicode__(self):  
-          return self.time
+          return self.id
 
