@@ -64,3 +64,4 @@ class setting(View):
 		return render(request, "info.html", {'profile': profile})
 
 	
+
