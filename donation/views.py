@@ -46,6 +46,7 @@ class DonateCoinView(View):
 	template_name = 'coin1.html'
 	def get(self, request, *args, **kwargs):
 		details = Donation_detail.objects.filter()
+
 		for detail in details:
 			detail.amount = detail.invoice.get_price()
 			detail.donation_amount = detail.roundup-(detail.amount % detail.roundup)

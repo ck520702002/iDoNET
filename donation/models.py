@@ -21,10 +21,12 @@ class Invoice(models.Model):
 	hit = models.BooleanField()
 	def get_price():
 		products = Product.objects.filter(invoice__id=self.pk)
+
 		price = products.objects.aggregate(Sum('price'))
 		return price
+
 	def __unicode__(self):  
-          return self.number 
+	    return self.number 
 
 class Donation_detail(models.Model):
 	owner = models.ForeignKey(User)
