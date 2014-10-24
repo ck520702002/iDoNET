@@ -1,5 +1,5 @@
 from django.conf.urls import patterns, include, url
-from views import logout,login,signup
+from views import logout,login,signup,setting
 
 urlpatterns = patterns('',
     # Examples:
@@ -9,4 +9,5 @@ urlpatterns = patterns('',
     url(r'^login/', login.as_view()),
     url(r'^signup/', signup.as_view()),
     url(r'^logout/', logout.as_view()),
+    url(r'^setting/', setting.as_view()),
 )
