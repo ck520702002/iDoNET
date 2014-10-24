@@ -45,5 +45,5 @@ class DonateInvoiceView(View):
 class DonateCoinView(View):
 	template_name = 'coin1.html'
 	def get(self, request, *args, **kwargs):
-		details = donation_detail.objects.filter()
+		details = Donation_detail.objects.filter()
 		return render(request,self.template_name, {'details':details})
