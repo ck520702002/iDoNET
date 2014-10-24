@@ -21,13 +21,14 @@ class Invoice(models.Model):
 	hit = models.BooleanField()
 	def get_price():
 		Product.objects.filter(invoice__id=self.pk)
+			return 
 	def __unicode__(self):  
           return self.number 
 
-class donation_detail(models.Model):
+class Donation_detail(models.Model):
 	owner = models.ForeignKey(User)
 	threshold = models.IntegerField(max_length=20,null=True)
-    roundup = models.IntegerField(max_length=20,null=True)
+	roundup = models.IntegerField(max_length=20,null=True)
 	amount = models.IntegerField(max_length=10,blank=False)
 	invoice = models.ForeignKey(Invoice)
 	time = models.DateTimeField(auto_now=True)

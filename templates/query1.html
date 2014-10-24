@@ -58,38 +58,19 @@
                                                 <th>悠遊卡<br/>結賬單位</th>
                                                 <th>單筆<br/>消費金額</th>
                                                 <th>單筆<br/>捐款金額</th>
-                                                <th>此月<br/>捐款上限</th>
                                                 <th>捐獻對象</th>
                                             </tr>
                                         </thead>
                                         <tbody>
+                                            {%for detail in details%}
                                             <tr>
-                                                <td>103.10.09</td>
-                                                <td>100元</td>
-                                                <td>5元</td>
-                                                <td>133元</td>
-                                                <td>2元</td>
-                                                <td>500元</td>
-                                                <td>惠光導盲犬教育基金會</td>
+                                                <td>{{detail.time}}</td>
+                                                <td>{{detail.threshold}}</td>
+                                                <td>{{detail.roundup}}</td>
+                                                <td>{{detail.invoice.get_price}}</td>
+                                                <td>{{detail.to_whom}}</td>
                                             </tr>
-                                            <tr>
-                                                <td>103.10.09</td>
-                                                <td>100元</td>
-                                                <td>5元</td>
-                                                <td>111元</td>
-                                                <td>4元</td>
-                                                <td>500元</td>
-                                                <td>惠光導盲犬教育基金會</td>
-                                            </tr>
-                                            <tr>
-                                                <td>103.10.09</td>
-                                                <td>100元</td>
-                                                <td>5元</td>
-                                                <td>189元</td>
-                                                <td>1元</td>
-                                                <td>500元</td>
-                                                <td>惠光導盲犬教育基金會</td>
-                                            </tr>
+                                            {%endfor%}
                                         </tbody>
                                     </table>
                                   </div>
