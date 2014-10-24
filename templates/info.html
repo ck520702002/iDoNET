@@ -28,25 +28,25 @@
                                     <div class="tab-content">
                                         <div class="tab-pane active" id="A">
                                             <h4 class="control-label" style="color:#009FCC" for="textarea">悠遊卡卡號:</h4>
-                                            <p>1234567890</p>
+                                            <p>{{profile.card}}</p>
                                             <h4 class="control-label" style="color:#009FCC" for="textarea">捐款對象:</h4>
-                                            <p>財團法人惠光導盲犬教育基金會</p>
+                                            <p>{{profile.favored_charity}}</p>
                                             <h4 class="control-label" style="color:#009FCC" for="textarea">上次設定日期:</h4>
-                                            <p>103年10月14日</p>
+                                            <p>103年10月14日(假的)</p>
                                         </div>
                                         <div class="tab-pane" id="B">
                                             <h4 class="control-label" style="color:#009FCC" for="textarea">悠遊卡卡號:</h4>
-                                            <p>1234567890</p>
+                                            <p>{{profile.card}}</p>
                                             <h4 class="control-label" style="color:#009FCC" for="textarea">捐款對象:</h4>
-                                            <p>財團法人惠光導盲犬教育基金會</p>
+                                            <p>{{profile.favored_charity}}</p>
                                             <h4 class="control-label" style="color:#009FCC" for="textarea">每月捐款上限:</h4>
-                                            <p>500元</p>
+                                            <p>{{ profile.upper_limit}}</p>
                                             <h4 class="control-label" style="color:#009FCC" for="textarea">悠遊卡結賬單位:</h4>
-                                            <p>5元</p>
+                                            <p>{{ profile.roundup }}</p>
                                             <h4 class="control-label" style="color:#009FCC">捐款門檻:</h4>
-                                            <p>100元</p>
+                                            <p>{{ profile.threshold}}</p>
                                             <h4 class="control-label" style="color:#009FCC" for="textarea">上次設定日期:</h4>
-                                            <p>103年10月14日</p>
+                                            <p>103年10月14日(假的)</p>
                                         </div>
                                     </div> 
                                 </div>
@@ -69,7 +69,7 @@
 <div class="modal-body">
   <form class="form-horizontal">
     <div class="control-group">
-      <p>您所持有的悠遊卡 (卡號:1234567890) <br/>將在單筆消費滿「100元」 時，以「5元」為結賬單位，</br>將零錢捐給「財團法人惠光導盲犬教育基金會」，但每月捐款不超過「500元」。</p>
+      <p>您所持有的悠遊卡 (卡號:{{profile.card}}) <br/>將在單筆消費滿「{{ profile.threshold}}元」 時，以「{{ profile.roundup }}元」為結賬單位，</br>將零錢捐給「{{profile.favored_charity}}」，但每月捐款不超過「{{ profile.upper_limit}}元」。</p>
     </div>
   </form>
 </div>
