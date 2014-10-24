@@ -32,4 +32,6 @@ class Donation_detail(models.Model):
 	invoice = models.ForeignKey(Invoice)
 	time = models.DateTimeField(auto_now=True)
 	to_whom = models.ForeignKey(Charity)
+	def __unicode__(self):  
+          return self.time
 
