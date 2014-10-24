@@ -59,4 +59,3 @@ class logout(View):
 
 class setting(TemplateView):
 	template_name = "info.html"
-	
