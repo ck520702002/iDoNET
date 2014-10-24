@@ -20,7 +20,7 @@ class Invoice(models.Model):
 	total_price = models.IntegerField(max_length=10,blank=True)
 	hit = models.BooleanField()
 	def get_price():
-		Product.objects.filter(invoice__id=self.pk)
+		products = Product.objects.filter(invoice__id=self.pk)
 
 	def __unicode__(self):  
 	    return self.number 
