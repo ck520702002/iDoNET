@@ -10,6 +10,7 @@ from django.contrib.auth import logout as django_logout
 from forms import login_form,sign_up_form
 from django.contrib.auth.models import User
 from iDoNET.utils import get_alert_box
+from models import UserProfile
 # Create your views here.
 class login(View):
 	def get(self, request, *args, **kwargs):
@@ -57,6 +58,10 @@ class logout(View):
 		django_logout(request)
 		return redirect("/")
 
-class setting(TemplateView):
-	template_name = "info.html"
+class setting(View):
+	def get(self, request, *args, **kwargs):
+		profile = UserProfile.objects.get(user=request.user.id)
+		return render(request, "info.html", {'profile': profile})
+
 	
+
