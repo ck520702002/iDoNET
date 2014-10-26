@@ -10,9 +10,24 @@ class QueryView(View):
 	template_name = 'query1.html'
 	def get(self, request, *args, **kwargs):
 		x = Invoice.objects.all()
+		for q in x:
+			q.total_price = q.get_price()['price__sum']
 		y = Product.objects.all()
-		z = Donation_detail.objects.all()
-		return render(request,self.template_name,{'invoices':x,'products':y,'details':z})
+		details = Donation_detail.objects.all()
+		for detail in details:
+			invoice = x.get(id=detail.invoice.id)
+			detail.amount = invoice.get_price()['price__sum']
+			detail.Donation_detailamount = detail.roundup-(detail.amount % detail.roundup)
+		return render(request,self.template_name,{'invoices':x,'products':y,'details':details})
+
+def get(self, request, *args, **kwargs):
+		details = Donation_detail.objects.all()
+		invoices = Invoice.objects.all()
+		for detail in details:
+			invoice = invoices.get(id=detail.invoice)
+			detail.amount = invoice.get_price()['price__sum']
+			detail.Donation_detailamount = detail.roundup-(detail.amount % detail.roundup)
+		return render(request,self.template_name, {'details':details})
 
 class DonateInvoiceView(View):
 	template_name = 'invoice1.html'
@@ -48,7 +63,7 @@ class DonateCoinView(View):
 		details = Donation_detail.objects.filter()
 
 		for detail in details:
-			detail.amount = detail.invoice.get_price()
-			detail.donation_amount = detail.roundup-(detail.amount % detail.roundup)
+			detail.amount = detail.invoice.get_price()['price__sum']
+			detail.Donation_detailamount = detail.roundup-(detail.amount % detail.roundup)
 
 		return render(request,self.template_name, {'details':details})
