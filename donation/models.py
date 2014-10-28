@@ -20,10 +20,9 @@ class Invoice(models.Model):
 	to_whom = models.ForeignKey(Charity)
 	total_price = models.IntegerField(max_length=10,blank=True,null=True)
 	hit = models.BooleanField()
-	def get_price():
-		products = Product.objects.filter(invoice__id=self.pk)
-		price = products.objects.aggregate(Sum('price'))
-		total_price = price
+
+	def get_price(self):
+		price = Product.objects.filter(invoice__id=self.pk).aggregate(Sum('price'))
 		return price
 
 	def __unicode__(self):  
