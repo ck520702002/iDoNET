@@ -5,6 +5,8 @@ from donation.models import Donation_detail
 from product.models import Product
 from models import Charity
 from accounts.models import UserProfile
+from django.db.models import Q
+
 
 class QueryView(View):
 	template_name = 'query1.html'
@@ -17,17 +19,14 @@ class QueryView(View):
 		for detail in details:
 			invoice = x.get(id=detail.invoice.id)
 			detail.amount = invoice.get_price()['price__sum']
-			detail.Donation_detailamount = detail.roundup-(detail.amount % detail.roundup)
-		return render(request,self.template_name,{'invoices':x,'products':y,'details':details})
+			if (detail.amount % detail.roundup) != 0:
+				detail.Donation_detailamount = detail.roundup-(detail.amount % detail.roundup)
+			else:
+				detail.Donation_detailamount = 0
+			detail.save()	
 
-def get(self, request, *args, **kwargs):
-		details = Donation_detail.objects.all()
-		invoices = Invoice.objects.all()
-		for detail in details:
-			invoice = invoices.get(id=detail.invoice)
-			detail.amount = invoice.get_price()['price__sum']
-			detail.Donation_detailamount = detail.roundup-(detail.amount % detail.roundup)
-		return render(request,self.template_name, {'details':details})
+		details1 = Donation_detail.objects.all().filter(~Q(Donation_detailamount=0))
+		return render(request,self.template_name,{'invoices':x,'products':y,'details':details1})
 
 class DonateInvoiceView(View):
 	template_name = 'invoice1.html'
