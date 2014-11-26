@@ -1,1 +1,1 @@
-web: gunicorn iDoNET.wsgi --log-file -
+web: gunicorn iDoNET.wsgi 
