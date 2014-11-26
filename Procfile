@@ -1,1 +1,1 @@
-web: python manage.py runserver
+web: gunicorn iDoNET.wsgi --log-file -
