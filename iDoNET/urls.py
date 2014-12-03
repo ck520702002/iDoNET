@@ -14,3 +14,9 @@ urlpatterns = patterns('',
     url(r'^donation/', include('donation.urls')),
     url(r'^$', home.as_view(), name='home'),
 )
+
+
+import settings
+urlpatterns += patterns('',
+        (r'^static/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.STATIC_ROOT}),
+    )
