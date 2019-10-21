@@ -10,7 +10,7 @@ Pygments==1.6
 South==0.8
 Twisted==13.2.0
 WebOb==1.4
-Werkzeug==0.9.6
+Werkzeug==0.15.3
 altgraph==0.10.2
 apiclient==1.0.2
 appengine==1.8.0.2
