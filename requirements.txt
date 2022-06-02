@@ -35,7 +35,7 @@ gcloud==0.3.0
 gnureadline==6.3.3
 google-api-python-client==1.2
 html2text==2014.4.5
-html5lib==0.999
+html5lib==0.99999999
 httplib2==0.9
 huey==0.4.2
 ipython==2.1.0
